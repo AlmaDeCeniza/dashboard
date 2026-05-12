@@ -1,0 +1,10 @@
+{% extends "sqla/model/show.html" %}
+
+{% block show_value %}
+    {# Verificamos si el valor contiene la etiqueta img #}
+    {% if value and '<img' in value|string %}
+        {{ value | safe }}
+    {% else %}
+        {{ super() }}
+    {% endif %}
+{% endblock %}
